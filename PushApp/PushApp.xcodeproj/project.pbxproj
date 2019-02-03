@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1196FD3D2206EB8700D55A28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196FD3C2206EB8700D55A28 /* AppDelegate.swift */; };
-		1196FD3F2206EB8700D55A28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196FD3E2206EB8700D55A28 /* ViewController.swift */; };
+		1196FD3F2206EB8700D55A28 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196FD3E2206EB8700D55A28 /* MainViewController.swift */; };
 		1196FD422206EB8700D55A28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1196FD402206EB8700D55A28 /* Main.storyboard */; };
 		1196FD442206EB8800D55A28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1196FD432206EB8800D55A28 /* Assets.xcassets */; };
 		1196FD472206EB8800D55A28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1196FD452206EB8800D55A28 /* LaunchScreen.storyboard */; };
@@ -17,11 +17,12 @@
 /* Begin PBXFileReference section */
 		1196FD392206EB8700D55A28 /* PushApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1196FD3C2206EB8700D55A28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1196FD3E2206EB8700D55A28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1196FD3E2206EB8700D55A28 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1196FD412206EB8700D55A28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1196FD432206EB8800D55A28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1196FD462206EB8800D55A28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1196FD482206EB8800D55A28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1196FD522206F29D00D55A28 /* PushApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +55,47 @@
 		1196FD3B2206EB8700D55A28 /* PushApp */ = {
 			isa = PBXGroup;
 			children = (
-				1196FD3C2206EB8700D55A28 /* AppDelegate.swift */,
-				1196FD3E2206EB8700D55A28 /* ViewController.swift */,
-				1196FD402206EB8700D55A28 /* Main.storyboard */,
-				1196FD432206EB8800D55A28 /* Assets.xcassets */,
-				1196FD452206EB8800D55A28 /* LaunchScreen.storyboard */,
-				1196FD482206EB8800D55A28 /* Info.plist */,
+				1196FD522206F29D00D55A28 /* PushApp.entitlements */,
+				1196FD502206F1C200D55A28 /* Modules */,
+				1196FD4E2206F1A600D55A28 /* SupportingFiles */,
+				1196FD4F2206F1B300D55A28 /* Resources */,
 			);
 			path = PushApp;
+			sourceTree = "<group>";
+		};
+		1196FD4E2206F1A600D55A28 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1196FD3C2206EB8700D55A28 /* AppDelegate.swift */,
+				1196FD482206EB8800D55A28 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		1196FD4F2206F1B300D55A28 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1196FD452206EB8800D55A28 /* LaunchScreen.storyboard */,
+				1196FD432206EB8800D55A28 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1196FD502206F1C200D55A28 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				1196FD512206F1C800D55A28 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		1196FD512206F1C800D55A28 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1196FD402206EB8700D55A28 /* Main.storyboard */,
+				1196FD3E2206EB8700D55A28 /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +130,11 @@
 				TargetAttributes = {
 					1196FD382206EB8700D55A28 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -135,7 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1196FD3F2206EB8700D55A28 /* ViewController.swift in Sources */,
+				1196FD3F2206EB8700D55A28 /* MainViewController.swift in Sources */,
 				1196FD3D2206EB8700D55A28 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,17 +321,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PushApp/PushApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C4KFW275K4;
-				INFOPLIST_FILE = PushApp/Info.plist;
+				DEVELOPMENT_TEAM = X78834UV7A;
+				INFOPLIST_FILE = "$(SRCROOT)/PushApp/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = AK.PushApp;
+				PRODUCT_BUNDLE_IDENTIFIER = IBAction.PushApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -300,17 +340,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PushApp/PushApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C4KFW275K4;
-				INFOPLIST_FILE = PushApp/Info.plist;
+				DEVELOPMENT_TEAM = X78834UV7A;
+				INFOPLIST_FILE = "$(SRCROOT)/PushApp/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = AK.PushApp;
+				PRODUCT_BUNDLE_IDENTIFIER = IBAction.PushApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
