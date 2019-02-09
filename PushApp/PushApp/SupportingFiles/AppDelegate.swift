@@ -7,35 +7,20 @@
 //
 
 import UIKit
+import CoreData
 import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let notificationDelegate = NotificationDelegate()
+    lazy var coreDataStack = CoreDataStack(modelName: "PushNotifications")
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let options: UNAuthorizationOptions = [.badge,
-                                               .sound,
-                                               .alert
-        ]
-        UNUserNotificationCenter.current().requestAuthorization(options: options) { granted, _ in
-            guard granted else {
-                return
-            }
-            DispatchQueue.main.async {
-                application.registerForRemoteNotifications()
-            }
-        }
+        registerForPushNotifications(application: application)
         
         return true
     }
-
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let token = deviceToken.reduce("") { $0 + String(format: "%02x", $1) }
-        print(token)
-    }
 }
-

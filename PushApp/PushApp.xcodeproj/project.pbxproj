@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		116D4DE2220C807B0081725A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D4DE1220C807B0081725A /* CoreDataStack.swift */; };
+		116D4DE5220C80BB0081725A /* PushNotifications.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 116D4DE3220C80BB0081725A /* PushNotifications.xcdatamodeld */; };
+		1170C3892209D60C007DFB44 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170C3882209D60C007DFB44 /* NotificationDelegate.swift */; };
 		1196FD3D2206EB8700D55A28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196FD3C2206EB8700D55A28 /* AppDelegate.swift */; };
 		1196FD3F2206EB8700D55A28 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1196FD3E2206EB8700D55A28 /* MainViewController.swift */; };
 		1196FD422206EB8700D55A28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1196FD402206EB8700D55A28 /* Main.storyboard */; };
 		1196FD442206EB8800D55A28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1196FD432206EB8800D55A28 /* Assets.xcassets */; };
 		1196FD472206EB8800D55A28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1196FD452206EB8800D55A28 /* LaunchScreen.storyboard */; };
+		11FACBF2220DC86A00DF276A /* AppDelegate+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACBF1220DC86A00DF276A /* AppDelegate+PushNotifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		116D4DE1220C807B0081725A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		116D4DE4220C80BB0081725A /* PushNotifications.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PushNotifications.xcdatamodel; sourceTree = "<group>"; };
+		1170C3882209D60C007DFB44 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 		1196FD392206EB8700D55A28 /* PushApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1196FD3C2206EB8700D55A28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1196FD3E2206EB8700D55A28 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -23,6 +30,7 @@
 		1196FD462206EB8800D55A28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1196FD482206EB8800D55A28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1196FD522206F29D00D55A28 /* PushApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushApp.entitlements; sourceTree = "<group>"; };
+		11FACBF1220DC86A00DF276A /* AppDelegate+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PushNotifications.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 		1196FD3B2206EB8700D55A28 /* PushApp */ = {
 			isa = PBXGroup;
 			children = (
+				11FACBEF220DC83600DF276A /* Services */,
 				1196FD522206F29D00D55A28 /* PushApp.entitlements */,
 				1196FD502206F1C200D55A28 /* Modules */,
 				1196FD4E2206F1A600D55A28 /* SupportingFiles */,
@@ -68,6 +77,7 @@
 			children = (
 				1196FD3C2206EB8700D55A28 /* AppDelegate.swift */,
 				1196FD482206EB8800D55A28 /* Info.plist */,
+				116D4DE1220C807B0081725A /* CoreDataStack.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -77,6 +87,7 @@
 			children = (
 				1196FD452206EB8800D55A28 /* LaunchScreen.storyboard */,
 				1196FD432206EB8800D55A28 /* Assets.xcassets */,
+				116D4DE3220C80BB0081725A /* PushNotifications.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -96,6 +107,23 @@
 				1196FD3E2206EB8700D55A28 /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		11FACBEF220DC83600DF276A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				11FACBF0220DC84100DF276A /* Notifications */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		11FACBF0220DC84100DF276A /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				1170C3882209D60C007DFB44 /* NotificationDelegate.swift */,
+				11FACBF1220DC86A00DF276A /* AppDelegate+PushNotifications.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +159,9 @@
 					1196FD382206EB8700D55A28 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -175,7 +206,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1196FD3F2206EB8700D55A28 /* MainViewController.swift in Sources */,
+				1170C3892209D60C007DFB44 /* NotificationDelegate.swift in Sources */,
+				11FACBF2220DC86A00DF276A /* AppDelegate+PushNotifications.swift in Sources */,
 				1196FD3D2206EB8700D55A28 /* AppDelegate.swift in Sources */,
+				116D4DE2220C807B0081725A /* CoreDataStack.swift in Sources */,
+				116D4DE5220C80BB0081725A /* PushNotifications.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +412,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		116D4DE3220C80BB0081725A /* PushNotifications.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				116D4DE4220C80BB0081725A /* PushNotifications.xcdatamodel */,
+			);
+			currentVersion = 116D4DE4220C80BB0081725A /* PushNotifications.xcdatamodel */;
+			path = PushNotifications.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1196FD312206EB8700D55A28 /* Project object */;
 }
