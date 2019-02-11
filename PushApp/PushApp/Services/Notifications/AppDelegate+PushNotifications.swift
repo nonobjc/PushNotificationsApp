@@ -11,13 +11,6 @@ import UserNotifications
 import CoreData
 
 extension AppDelegate {
-    
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        sendPushNotificationDetails(to: "http://192.168.228.228:8080/api/token",
-                                    using: deviceToken)
-    }
-    
     // Content-available (Foreground & Bachground)
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable : Any],
@@ -44,6 +37,16 @@ extension AppDelegate {
             }
         }
     }
+}
+
+// Register and send token to server
+extension AppDelegate {
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        sendPushNotificationDetails(to: "http://192.168.228.228:8080/api/token",
+                                    using: deviceToken)
+        notificationDelegate.registerCustomActions()
+    }
     
     func registerForPushNotifications(application: UIApplication) {
         let center = UNUserNotificationCenter.current()
@@ -64,7 +67,7 @@ extension AppDelegate {
     func sendPushNotificationDetails(to urlString: String,
                                      using deviceToken: Data) {
         guard let url = URL(string: urlString) else {
-            fatalError("Invalid URL string")
+            return
         }
         
         let token = deviceToken.reduce("") {
@@ -84,16 +87,22 @@ extension AppDelegate {
         request.addValue("application/json",
                          forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        request.httpBody = try! JSONSerialization.data(withJSONObject: obj)
+        request.httpBody = try? JSONSerialization.data(withJSONObject: obj)
         
         #if DEBUG
         print("Device Token: \(token)")
         
-        let pretty = try! JSONSerialization.data(withJSONObject: obj,
-                                                 options: .prettyPrinted)
-        print(String(data: pretty, encoding: .utf8)!)
+        let data = try? JSONSerialization.data(withJSONObject: obj,
+                                               options: .prettyPrinted)
+        let stringToPrint = String(data: data ?? Data(),
+                                   encoding: .utf8) ?? "Invalid data"
+        print(stringToPrint)
         #endif
         
         URLSession.shared.dataTask(with: request).resume()
     }
+}
+
+extension AppDelegate {
+    
 }

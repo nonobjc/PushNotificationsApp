@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11505A152210CFE8004EA190 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11505A142210CFE8004EA190 /* Notification+Extension.swift */; };
 		116D4DE2220C807B0081725A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D4DE1220C807B0081725A /* CoreDataStack.swift */; };
 		116D4DE5220C80BB0081725A /* PushNotifications.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 116D4DE3220C80BB0081725A /* PushNotifications.xcdatamodeld */; };
 		1170C3892209D60C007DFB44 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1170C3882209D60C007DFB44 /* NotificationDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11505A142210CFE8004EA190 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		116D4DE1220C807B0081725A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		116D4DE4220C80BB0081725A /* PushNotifications.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PushNotifications.xcdatamodel; sourceTree = "<group>"; };
 		1170C3882209D60C007DFB44 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				1170C3882209D60C007DFB44 /* NotificationDelegate.swift */,
 				11FACBF1220DC86A00DF276A /* AppDelegate+PushNotifications.swift */,
+				11505A142210CFE8004EA190 /* Notification+Extension.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				1170C3892209D60C007DFB44 /* NotificationDelegate.swift in Sources */,
 				11FACBF2220DC86A00DF276A /* AppDelegate+PushNotifications.swift in Sources */,
 				1196FD3D2206EB8700D55A28 /* AppDelegate.swift in Sources */,
+				11505A152210CFE8004EA190 /* Notification+Extension.swift in Sources */,
 				116D4DE2220C807B0081725A /* CoreDataStack.swift in Sources */,
 				116D4DE5220C80BB0081725A /* PushNotifications.xcdatamodeld in Sources */,
 			);
