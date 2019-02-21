@@ -11,9 +11,18 @@ import CoreData
 
 final class CoreDataStack {
     
-    private let modelName: String
+    private let modelName = "PushNotifications"
     private lazy var storeContainer: NSPersistentContainer = {
+        let groupName = "group.IBAction.PushApp"
+        let url = FileManager.default
+            .containerURL(forSecurityApplicationGroupIdentifier: groupName)!
+            .appendingPathComponent("PushNotifications.sqlite")
+        
         let container = NSPersistentContainer(name: modelName)
+        
+        container.persistentStoreDescriptions = [
+            NSPersistentStoreDescription(url: url)
+        ]
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
                 print("Unresolved error \(error), \(error.userInfo)")
@@ -24,10 +33,6 @@ final class CoreDataStack {
     lazy var managedContext: NSManagedObjectContext = {
         return self.storeContainer.viewContext
     }()
-    
-    init(modelName: String) {
-        self.modelName = modelName
-    }
     
     func removeObject(object: NSManagedObject) {
         managedContext.delete(object)

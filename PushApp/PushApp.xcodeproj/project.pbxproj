@@ -16,6 +16,12 @@
 		1196FD422206EB8700D55A28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1196FD402206EB8700D55A28 /* Main.storyboard */; };
 		1196FD442206EB8800D55A28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1196FD432206EB8800D55A28 /* Assets.xcassets */; };
 		1196FD472206EB8800D55A28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1196FD452206EB8800D55A28 /* LaunchScreen.storyboard */; };
+		11A78E7A221E0B77005D9485 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A78E79221E0B77005D9485 /* UserDefaults+Extensions.swift */; };
+		11A78E7B221E0C9A005D9485 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A78E79221E0B77005D9485 /* UserDefaults+Extensions.swift */; };
+		11A78E7C221E136B005D9485 /* PushNotifications.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 116D4DE3220C80BB0081725A /* PushNotifications.xcdatamodeld */; };
+		11A78E7D221E1589005D9485 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D4DE1220C807B0081725A /* CoreDataStack.swift */; };
+		11A78E7F221E15DD005D9485 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 11A78E7E221E15DD005D9485 /* Localizable.strings */; };
+		11A78E80221E15DF005D9485 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 11A78E7E221E15DD005D9485 /* Localizable.strings */; };
 		11FACBF2220DC86A00DF276A /* AppDelegate+PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FACBF1220DC86A00DF276A /* AppDelegate+PushNotifications.swift */; };
 		11FD6E33221C7CC800FAF025 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FD6E32221C7CC800FAF025 /* NotificationService.swift */; };
 		11FD6E37221C7CC800FAF025 /* PayloadModification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 11FD6E30221C7CC800FAF025 /* PayloadModification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -59,6 +65,8 @@
 		1196FD462206EB8800D55A28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1196FD482206EB8800D55A28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1196FD522206F29D00D55A28 /* PushApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushApp.entitlements; sourceTree = "<group>"; };
+		11A78E79221E0B77005D9485 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		11A78E7E221E15DD005D9485 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		11FACBF1220DC86A00DF276A /* AppDelegate+PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PushNotifications.swift"; sourceTree = "<group>"; };
 		11FD6E30221C7CC800FAF025 /* PayloadModification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PayloadModification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		11FD6E32221C7CC800FAF025 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -106,6 +114,7 @@
 		1196FD3B2206EB8700D55A28 /* PushApp */ = {
 			isa = PBXGroup;
 			children = (
+				11A78E78221E0B66005D9485 /* Extensions */,
 				11FACBEF220DC83600DF276A /* Services */,
 				1196FD522206F29D00D55A28 /* PushApp.entitlements */,
 				1196FD502206F1C200D55A28 /* Modules */,
@@ -131,6 +140,7 @@
 				1196FD452206EB8800D55A28 /* LaunchScreen.storyboard */,
 				1196FD432206EB8800D55A28 /* Assets.xcassets */,
 				116D4DE3220C80BB0081725A /* PushNotifications.xcdatamodeld */,
+				11A78E7E221E15DD005D9485 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -150,6 +160,14 @@
 				1196FD3E2206EB8700D55A28 /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		11A78E78221E0B66005D9485 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				11A78E79221E0B77005D9485 /* UserDefaults+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		11FACBEF220DC83600DF276A /* Services */ = {
@@ -234,7 +252,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -248,7 +266,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -282,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1196FD472206EB8800D55A28 /* LaunchScreen.storyboard in Resources */,
+				11A78E7F221E15DD005D9485 /* Localizable.strings in Resources */,
 				1196FD442206EB8800D55A28 /* Assets.xcassets in Resources */,
 				1196FD422206EB8700D55A28 /* Main.storyboard in Resources */,
 			);
@@ -291,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A78E80221E15DF005D9485 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +323,7 @@
 			files = (
 				1196FD3F2206EB8700D55A28 /* MainViewController.swift in Sources */,
 				1170C3892209D60C007DFB44 /* NotificationDelegate.swift in Sources */,
+				11A78E7A221E0B77005D9485 /* UserDefaults+Extensions.swift in Sources */,
 				11FACBF2220DC86A00DF276A /* AppDelegate+PushNotifications.swift in Sources */,
 				1196FD3D2206EB8700D55A28 /* AppDelegate.swift in Sources */,
 				11505A152210CFE8004EA190 /* Notification+Extension.swift in Sources */,
@@ -315,7 +336,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A78E7D221E1589005D9485 /* CoreDataStack.swift in Sources */,
+				11A78E7C221E136B005D9485 /* PushNotifications.xcdatamodeld in Sources */,
 				11FD6E33221C7CC800FAF025 /* NotificationService.swift in Sources */,
+				11A78E7B221E0C9A005D9485 /* UserDefaults+Extensions.swift in Sources */,
 				11FD6E3D221C88D600FAF025 /* ROT228.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

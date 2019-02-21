@@ -28,6 +28,11 @@ final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         defer { completionHandler() }
+
+        // Perform actions here
+        let payload = response.notification.request.content
+        print(payload)
+        UIApplication.shared.applicationIconBadgeNumber -= 1
         
         let identity = response.notification.request.content.categoryIdentifier
         guard identity == categoryIdentifier,
@@ -35,17 +40,14 @@ final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
             else {
                 return
         }
-        
+
         switch action {
         case .accept:
             Notification.Name.acceptButton.post()
         case .reject:
             Notification.Name.rejectButton.post()
         }
-        
-        // Perform actions here
-        let payload = response.notification.request.content
-        print(payload.userInfo)
+       
     }
     
     func registerCustomActions() {

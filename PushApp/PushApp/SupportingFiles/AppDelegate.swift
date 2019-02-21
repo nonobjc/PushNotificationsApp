@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let notificationDelegate = NotificationDelegate()
-    lazy var coreDataStack = CoreDataStack(modelName: "PushNotifications")
+    lazy var coreDataStack = CoreDataStack()
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
