@@ -11,7 +11,7 @@ import UserNotifications
 import CoreData
 
 extension AppDelegate {
-    // Content-available (Foreground & Bachground)
+    // Content-available (Foreground & Background)
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable : Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

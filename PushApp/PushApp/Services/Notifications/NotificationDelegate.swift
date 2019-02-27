@@ -9,9 +9,14 @@
 import UIKit
 import UserNotifications
 
-private let categoryIdentifier = "AcceptOrReject"
+private enum PushCategoryId: String {
+    case acceptReject = "AcceptOrReject"
+    case map = "Map"
+}
 private enum ActionIdentifier: String {
-    case accept, reject
+    case accept
+    case reject
+    case comment
 }
 
 final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
@@ -34,10 +39,7 @@ final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
         print(payload)
         UIApplication.shared.applicationIconBadgeNumber -= 1
         
-        let identity = response.notification.request.content.categoryIdentifier
-        guard identity == categoryIdentifier,
-            let action = ActionIdentifier(rawValue: response.actionIdentifier)
-            else {
+        guard let action = ActionIdentifier(rawValue: response.actionIdentifier) else {
                 return
         }
 
@@ -46,20 +48,29 @@ final class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
             Notification.Name.acceptButton.post()
         case .reject:
             Notification.Name.rejectButton.post()
+        case .comment:
+            print("Some action")
         }
        
     }
     
     func registerCustomActions() {
-        let accept = UNNotificationAction(identifier: ActionIdentifier.accept.rawValue,
+        let acceptAction = UNNotificationAction(identifier: ActionIdentifier.accept.rawValue,
                                           title: "Accept")
-        let reject = UNNotificationAction(identifier: ActionIdentifier.reject.rawValue,
+        let rejectAction = UNNotificationAction(identifier: ActionIdentifier.reject.rawValue,
                                           title: "Reject")
+        let commentAction = UNTextInputNotificationAction(identifier: ActionIdentifier.comment.rawValue,
+                                                    title: "Comment")
         
-        let category = UNNotificationCategory(identifier: categoryIdentifier,
-                                              actions: [accept, reject],
-                                              intentIdentifiers: [])
+        let acceptRejectCategory = UNNotificationCategory(
+            identifier: PushCategoryId.acceptReject.rawValue,
+            actions: [acceptAction, rejectAction],
+            intentIdentifiers: [])
+        let mapCategory = UNNotificationCategory(
+            identifier: PushCategoryId.map.rawValue,
+            actions: [commentAction],
+            intentIdentifiers: [])
         UNUserNotificationCenter.current()
-            .setNotificationCategories([category])
+            .setNotificationCategories([acceptRejectCategory, mapCategory])
     }
 }
